@@ -225,13 +225,36 @@
                         <!-- tiquetes -->
                         <div class="orden">
                             <label for="regalo">Selecione un regalo</label>
-                            <select id="regalo" required></select>
+                            <select id="regalo" required>
+                                <option value="">-- Selecione un regalo --</option>
+                                <option value="ETI">Etiquetas</option>
+                                <option value="PUL">Pulseras</option>
+                                <option value="PLU">Plumas</option>
+                            </select>
                         </div>
                         <!-- orden -->
-
+                        <input type="button" id="calcular" class="button" value="calcular">
                     </div>
+                    <!-- extras -->
+                    <div class="total">
+                        <p>Resumen:</p>
+                        <div id="lista-producos">
+
+                        </div>
+                        <p>Total:</p>
+                        <div id="suma-total">
+
+                        </div>
+                        <input type="submit" id="btnRegistro" class="button" value="pagar">
+                    </div>
+                    <!-- total -->
+
                 </div>
+                <!-- caja -->
+
             </div>
+            <!-- #resumen -->
+
 
         </form>
     </section>
