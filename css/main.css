@@ -180,6 +180,7 @@ ul {
 
 .button:hover {
     opacity: .7;
+    cursor: pointer;
 }
 
 h2 {
@@ -1096,6 +1097,18 @@ div.resumen div.total {
 div.resumen input {
     display: block;
     margin: 10px auto;
+}
+
+#lista-productos {
+    background-color: #e1e1e1;
+    padding: 20px;
+    display: none;
+}
+
+#suma-total {
+    text-align: center;
+    color: #fe4918;
+    font-size: 2em;
 }
 
 
