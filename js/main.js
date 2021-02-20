@@ -31,6 +31,18 @@
             pase_dia.addEventListener('blur', mostrarDia);
             pase_dosDias.addEventListener('blur', mostrarDia);
             pase_completo.addEventListener('blur', mostrarDia);
+            nombre.addEventListener('blur', validarCampos);
+            apellido.addEventListener('blur', validarCampos);
+            email.addEventListener('blur', validarCampos);
+
+            function validarCampos() {
+                if (this.value == '') {
+                    errorDiv.style.display = 'block';
+                    errorDiv.innerHTML = 'este campo es obligatorio';
+                    errorDiv.style.border = '1px solid red';
+                    this.style.border = '1px solid red';
+                }
+            }
 
             function calcularMontos(event) {
                 event.preventDefault();
@@ -43,7 +55,6 @@
                         boletoCompleto = parseInt(pase_completo.value, 10) || 0,
                         cantEtiquetas = parseInt(etiquetas.value, 10) || 0,
                         cantCamisas = parseInt(camisas.value, 10) || 0;
-
 
                     var totalPagar = (boletosDia * 30) + (boleto2Dias * 45) + (boletoCompleto * 50) + ((cantCamisas * 10) * 0.93) + (cantEtiquetas * 2);
 
@@ -61,14 +72,38 @@
                         lista_productos.innerHTML += listadoProductos[i] + '</br>';
                     }
 
-                    suma_total.innerHTML = '$' + totalPagar.toFixed(2);
+                    suma_total.innerHTML = '$ ' + (new Intl.NumberFormat("en-US").format(totalPagar));
 
                 }
             }
 
             function mostrarDia() {
-                console.log(pase_dia.value);
+                var boletosDia = parseInt(pase_dia.value, 10) || 0,
+                    boleto2Dias = parseInt(pase_dosDias.value, 10) || 0,
+                    boletoCompleto = parseInt(pase_completo.value, 10) || 0;
 
+                var diasElegidos = [];
+
+                if (boletosDia > 0) {
+                    diasElegidos.push('viernes');
+                    console.log(diasElegidos);
+
+                }
+                if (boleto2Dias > 0) {
+                    diasElegidos.push('viernes', 'sabado');
+                    console.log(diasElegidos);
+
+                }
+                if (boletoCompleto > 0) {
+                    diasElegidos.push('viernes', 'sabado', 'domingo');
+                    console.log(diasElegidos);
+
+                }
+
+
+                for (let i = 0; i < diasElegidos.length; i++) {
+                    document.getElementById(diasElegidos[i]).style.display = 'block';
+                }
             }
 
 
