@@ -4,12 +4,12 @@
     var regalo = document.getElementById('regalo');
 
     document.addEventListener('DOMContentLoaded', function() {
-            //datos del usuario
+            //Datos del usuario
             var nombre = document.getElementById("nombre");
             var apellido = document.getElementById("apellido");
             var email = document.getElementById("email");
 
-            //pases
+            //Pases
             var pase_dia = document.getElementById('pase_dia');
             var pase_dosDias = document.getElementById('pase_dosDias');
             var pase_completo = document.getElementById('pase_completo');
@@ -71,7 +71,7 @@
                     for (var i = 0; i < listadoProductos.length; i++) {
                         lista_productos.innerHTML += listadoProductos[i] + '</br>';
                     }
-
+                    //funcion Intl. es un constructor me devuelve las cifras en unidades cientos y millares
                     suma_total.innerHTML = '$ ' + (new Intl.NumberFormat("en-US").format(totalPagar));
 
                 }
