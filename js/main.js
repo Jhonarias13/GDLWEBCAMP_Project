@@ -4,6 +4,21 @@
     var regalo = document.getElementById('regalo');
 
     document.addEventListener('DOMContentLoaded', function() {
+            // mapa
+            var map = L.map('mapa').setView([6.556432, -73.129478], 17≈);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([6.556432, -73.129478]).addTo(map)
+                .bindTooltip('Hogar.<br> Dulce hogar')
+                .openTooltip();
+
+
+
+
+
             //Datos del usuario
             var nombre = document.getElementById("nombre");
             var apellido = document.getElementById("apellido");
@@ -31,9 +46,11 @@
             pase_dia.addEventListener('blur', mostrarDia);
             pase_dosDias.addEventListener('blur', mostrarDia);
             pase_completo.addEventListener('blur', mostrarDia);
+
             nombre.addEventListener('blur', validarCampos);
             apellido.addEventListener('blur', validarCampos);
             email.addEventListener('blur', validarCampos);
+            email.addEventListener('blur', validarMail);
 
             function validarCampos() {
                 if (this.value == '') {
@@ -41,6 +58,24 @@
                     errorDiv.innerHTML = 'este campo es obligatorio';
                     errorDiv.style.border = '1px solid red';
                     this.style.border = '1px solid red';
+                } else {
+                    errorDiv.style.display = 'none';
+                    this.style.border = '1px solid #cccccc';
+                }
+            }
+
+            function validarMail() {
+                if (this.value.indexOf("@") > -1) {
+                    errorDiv.style.display = 'none';
+                    this.style.border = '1px solid #cccccc';
+                    // console.log('paso bien', this.value.indexOf("@"));
+
+                } else {
+                    errorDiv.style.display = 'block';
+                    errorDiv.innerHTML = 'No es una direccion de correo valida';
+                    errorDiv.style.border = '1px solid red';
+                    this.style.border = '1px solid red';
+                    // console.log('eror= ', this.value.indexOf("@"));
                 }
             }
 
