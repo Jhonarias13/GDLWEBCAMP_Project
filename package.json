@@ -13,5 +13,10 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "npm": "^7.6.0",
+    "update": "^0.7.4"
   }
 }
